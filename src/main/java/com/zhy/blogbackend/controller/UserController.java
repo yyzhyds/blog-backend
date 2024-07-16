@@ -7,6 +7,7 @@ import com.zhy.blogbackend.exception.BusinessException;
 import com.zhy.blogbackend.model.User;
 import com.zhy.blogbackend.model.UserDTO;
 import com.zhy.blogbackend.service.UserService;
+import com.zhy.blogbackend.utils.TokenUtils;
 import io.swagger.annotations.ApiOperation;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
@@ -72,7 +73,11 @@ public class UserController {
         }
         User user = userService.userLogin(username, password, request);
 
-        //String token = TokenUtils.getToken(userLogin.getUserAccount(),userLogin.getUserPassword());
+//        String token = TokenUtils.getToken(userDTO.getUsername(),userDTO.getPassword());
+//        user.setToken(token);
+//
+//        //将用户信息存入session
+//        request.getSession().setAttribute(USER_LOGIN_STATE, user);
 
         return ResultUtils.success(user);
     }
