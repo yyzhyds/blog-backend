@@ -100,7 +100,7 @@ public class UserController {
         long userId = currentUser.getUserId();
         // TODO 校验用户是否合法
         User user = userService.getById(userId);
-        //脱敏
+        //数据脱敏
         User safetyUser = new User();
         safetyUser.setUserId(user.getUserId());
         safetyUser.setUsername(user.getUsername());
