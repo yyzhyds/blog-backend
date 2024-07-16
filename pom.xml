@@ -7,15 +7,23 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>blog-backend</name>
     <description>blog-backend</description>
+    <!-- 统一依赖管理 -->
     <properties>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <mybatis.version>3.0.0</mybatis.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <druid.version>1.2.15</druid.version>
         <spring-boot.version>3.0.2</spring-boot.version>
         <swagger.ui.version>3.0.0</swagger.ui.version>
         <swagger.version>3.0.0</swagger.version>
         <springfox.boot.starter>3.0.0</springfox.boot.starter>
         <knife4j.spring.boot.starter>3.0.3</knife4j.spring.boot.starter>
+        <pagehelper.version>1.3.0</pagehelper.version>
+        <huber.version>5.8.0.M3</huber.version>
+        <jwt.version>4.2.1</jwt.version>
+        <junit.version>4.13.2</junit.version>
     </properties>
     <dependencies>
         <!-- web -->
@@ -27,7 +35,7 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>3.0.0</version>
+            <version>${mybatis.version}</version>
         </dependency>
         <!-- mysql -->
         <dependency>
@@ -39,13 +47,13 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.2</version>
+            <version>${mybatis-plus.version}</version>
         </dependency>
         <!-- druid连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.2.19</version>
+            <version>${druid.version}</version>
         </dependency>
         <!-- spring-boot-configuration -->
         <dependency>
@@ -63,14 +71,14 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-
+        <!-- junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.2</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- Swagger3 -->
+        <!-- Swagger3相关 -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -92,21 +100,23 @@
             <artifactId>knife4j-spring-boot-starter</artifactId>
             <version>${knife4j.spring.boot.starter}</version>
         </dependency>
-        <!-- pagehelper -->
+        <!-- pageHelper分页插件 -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.3.0</version>
+            <version>${pagehelper.version}</version>
         </dependency>
+        <!-- JWT -->
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
-            <version>4.2.1</version>
+            <version>${jwt.version}</version>
         </dependency>
+        <!-- hutool工具类 -->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <version>5.8.0.M3</version>
+            <version>${huber.version}</version>
         </dependency>
     </dependencies>
     <dependencyManagement>
