@@ -14,7 +14,7 @@
     </resultMap>
     <select id="getAllByUserId" resultMap="BaseResultMap">
         SELECT *
-        FROM post
+        FROM article
         WHERE user_id = #{userId}
     </select>
 

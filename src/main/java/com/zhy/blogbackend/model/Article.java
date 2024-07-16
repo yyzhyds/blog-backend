@@ -1,10 +1,14 @@
 package com.zhy.blogbackend.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -14,12 +18,16 @@ import java.util.Date;
  * @date 2024/7/16 12:42
  */
 @Data
-@TableName("value = blog_article")
-public class Article {
+@TableName("value = article")
+public class Article implements Serializable {
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
     /**
      * 文章id
      */
+    @TableId(type = IdType.AUTO)
     private Long postId;
 
     /**
