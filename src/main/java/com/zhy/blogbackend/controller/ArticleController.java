@@ -49,6 +49,7 @@ public class ArticleController {
         if (currentUser == null) {
             throw new BusinessException(ErrorCode.NOT_LOGIN);
         }
+
         // 校验
         if (article == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
