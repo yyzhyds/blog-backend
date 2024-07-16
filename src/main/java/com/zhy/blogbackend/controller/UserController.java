@@ -62,7 +62,7 @@ public class UserController {
      * @return              自定义返回类型
      */
     @PostMapping("/login")
-    @ApiOperation(value = "用户登录", notes = "用户数据")
+    @ApiOperation(value = "用户登录", notes = "用户数据&&请求")
     public BaseResponse<User> userLogin(@RequestBody UserDTO userDTO, HttpServletRequest request) {
         if (userDTO == null) {
             return ResultUtils.error(ErrorCode.PARAMS_ERROR);
@@ -76,9 +76,6 @@ public class UserController {
 
 //        String token = TokenUtils.getToken(userDTO.getUsername(),userDTO.getPassword());
 //        user.setToken(token);
-//
-//        //将用户信息存入session
-//        request.getSession().setAttribute(USER_LOGIN_STATE, user);
 
         return ResultUtils.success(user);
     }

@@ -16,6 +16,7 @@
         SELECT *
         FROM article
         WHERE user_id = #{userId}
+        ORDER BY created DESC
     </select>
 
 </mapper>

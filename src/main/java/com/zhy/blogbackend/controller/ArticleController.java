@@ -41,7 +41,7 @@ public class ArticleController {
      * @return            自定义返回类型
      */
     @PostMapping("/posts")
-    @ApiOperation(value = "创建新文章",notes = "文章数据")
+    @ApiOperation(value = "创建新文章",notes = "文章数据&&请求")
     public BaseResponse<Boolean> createNewArticle(@RequestBody Article article, HttpServletRequest request) {
         //是否登录
         Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
@@ -65,7 +65,7 @@ public class ArticleController {
      * @return            自定义返回类型
      */
     @GetMapping("/posts")
-    @ApiOperation(value = "获取用户所有文章",notes = "文章数据")
+    @ApiOperation(value = "获取用户所有文章",notes = "用户id&&分页参数")
     public BaseResponse<PageInfo<Article>> getAllArticleByUserId(
             @RequestParam(value = "uid") int userId,
             @RequestParam(value = "pageNum",defaultValue = "1",required = false) int pageNum,
@@ -81,7 +81,7 @@ public class ArticleController {
      * @return            自定义返回类型
      */
     @GetMapping("/posts/{id}")
-    @ApiOperation(value = "查询单篇文章",notes = "文章数据")
+    @ApiOperation(value = "查询单篇文章",notes = "文章id")
     public BaseResponse<Article> getArticleById(@PathVariable("id") int id) {
         Article article = articleService.getById(id);
         return ResultUtils.success(article);
@@ -94,7 +94,7 @@ public class ArticleController {
      * @return            自定义返回类型
      */
     @PutMapping("/posts/{id}")
-    @ApiOperation(value = "更新文章",notes = "文章数据")
+    @ApiOperation(value = "更新文章",notes = "文章id&&文章数据&&请求")
     public BaseResponse<Article> updateArticle(@PathVariable("id") Long id,
                                                @RequestParam(value = "article") Article article,
                                                HttpServletRequest request)  {
@@ -119,7 +119,7 @@ public class ArticleController {
      * @return            自定义返回类型
      */
     @DeleteMapping("/posts/{id}")
-    @ApiOperation(value = "更新文章",notes = "文章数据")
+    @ApiOperation(value = "更新文章",notes = "文章id")
     public BaseResponse<Boolean> deleteArticle(@PathVariable("id") Long id,
                                                HttpServletRequest request)  {
         //登录成功并且拥有权限
