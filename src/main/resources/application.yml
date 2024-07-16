@@ -1,0 +1,66 @@
+spring:
+  mvc:
+    # 策略
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    # 应用名称
+    name: blog-backend-api
+ # Mysql数据库配置
+  datasource:
+   driver-class-name: com.mysql.cj.jdbc.Driver
+   url: jdbc:mysql://localhost:3306/yuan
+   username: root
+   password: bR+b3a4k/AIcwqrEcaN6k0tH+gJ0STaubjX4VZQ3f5O8JzR4WE6FHk5HEL3Bfk5yc98yhGfRR9Lc5AjMvWFHDA==
+   type: com.alibaba.druid.pool.DruidDataSource
+   druid:
+     connectionProperties: config.decrypt=true;config.decrypt.key=${publicKey};
+     initial-size: 20
+     min-idle: 20
+     max-active: 100
+     max-wait: 60000
+     stat-view-servlet:
+       enabled: true
+       url-pattern: /druid/*
+       login-username: admin
+       login-password: 123456
+     filter:
+       stat:
+         enabled: true
+         slow-sql-millis: 2000
+         log-slow-sql: true
+       wall:
+         enabled: true
+       config:
+         enabled: true
+
+ # session失效时间
+  session:
+   timeout: 86400
+# 端口
+server:
+  port: 8080
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      # 逻辑删除配置
+      logic-delete-field: isDelete
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+    banner: false
+# swagger
+#swagger:
+#  basePackage: com.zhy.blogbackend.controller
+#  title: blog-backend
+#  contact-name: 随缘而愈
+#  contact-url: zhy648.com
+#  contact-mail: Yuan@163.com
+#  version: 2.0
+#  description: 博客后台api
+# knife4j
+#knife4j:
+#  enable: true
+
+publicKey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJbUxQ1Ku//xE6JngM7X0S7ZOKCtkFDQus0qLKsxe9QiGkWWYfRTuLKRhL1wvkcQHM9WTySUsAd43DLrcrdFsz8CAwEAAQ==

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhy.blogbackend.mapper.ArticleMapper">
+
+    <resultMap id="BaseResultMap" type="com.zhy.blogbackend.model.Article">
+        <id property="postId" column="id" jdbcType="BIGINT"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="userId" column="user_id" jdbcType="BIGINT"/>
+        <result property="createTime" column="created" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="last_modified" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <select id="getAllByUserId" resultMap="BaseResultMap">
+        SELECT *
+        FROM post
+        WHERE user_id = #{userId}
+    </select>
+
+</mapper>
