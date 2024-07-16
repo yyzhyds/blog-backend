@@ -58,7 +58,7 @@ public class ArticleController {
     }
 
     /**
-     * 创建新文章
+     * 获取用户所有文章
      *
      * @param userId      用户id
      * @return            自定义返回类型
