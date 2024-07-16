@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * 项目启动类
+ *
  * @return
  * @description TODO
  */
