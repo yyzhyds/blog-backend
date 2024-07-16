@@ -9,7 +9,7 @@ spring:
  # Mysql数据库配置
   datasource:
    driver-class-name: com.mysql.cj.jdbc.Driver
-   url: jdbc:mysql://localhost:3306/yuan
+   url: jdbc:mysql://localhost:3306/blog
    username: root
    password: bR+b3a4k/AIcwqrEcaN6k0tH+gJ0STaubjX4VZQ3f5O8JzR4WE6FHk5HEL3Bfk5yc98yhGfRR9Lc5AjMvWFHDA==
    type: com.alibaba.druid.pool.DruidDataSource
