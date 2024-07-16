@@ -9,13 +9,12 @@ import com.zhy.blogbackend.model.Article;
 import com.zhy.blogbackend.model.User;
 import com.zhy.blogbackend.model.UserDTO;
 import com.zhy.blogbackend.service.ArticleService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 import static com.zhy.blogbackend.constant.UserConstant.ADMIN_ROLE;
 import static com.zhy.blogbackend.constant.UserConstant.USER_LOGIN_STATE;
@@ -26,6 +25,7 @@ import static com.zhy.blogbackend.constant.UserConstant.USER_LOGIN_STATE;
  * @description 文章控制层
  * @date 2024/7/16 13:48
  */
+@Api(tags = "文章管理")
 @RestController
 @RequestMapping("/api/article")
 public class ArticleController {

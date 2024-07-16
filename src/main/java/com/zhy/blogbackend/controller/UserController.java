@@ -7,7 +7,7 @@ import com.zhy.blogbackend.exception.BusinessException;
 import com.zhy.blogbackend.model.User;
 import com.zhy.blogbackend.model.UserDTO;
 import com.zhy.blogbackend.service.UserService;
-import com.zhy.blogbackend.utils.TokenUtils;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,6 +22,7 @@ import static com.zhy.blogbackend.constant.UserConstant.USER_LOGIN_STATE;
  * @description 用户控制层
  * @date 2024/7/16 13:12
  */
+@Api(tags = "登录注册")
 @RestController
 @RequestMapping("/api/auth")
 public class UserController {
