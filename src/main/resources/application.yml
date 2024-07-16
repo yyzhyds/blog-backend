@@ -54,7 +54,6 @@ mybatis-plus:
 #swagger:
 #  basePackage: com.zhy.blogbackend.controller
 #  title: blog-backend
-#  contact-name: 随缘而愈
 #  contact-url: zhy648.com
 #  contact-mail: Yuan@163.com
 #  version: 2.0

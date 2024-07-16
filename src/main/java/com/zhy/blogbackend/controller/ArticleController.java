@@ -121,13 +121,8 @@ public class ArticleController {
     @ApiOperation(value = "更新文章",notes = "文章数据")
     public BaseResponse<Boolean> deleteArticle(@PathVariable("id") Long id,
                                                HttpServletRequest request)  {
-        //是否登录
-        Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
-        User currentUser = (User) userObj;
-        if (currentUser == null) {
-            throw new BusinessException(ErrorCode.NOT_LOGIN);
-        }
-        if (!isAdmin(request)) {
+        //登录成功并且拥有权限
+        if (!isAdmin(request) && isLogin(request))  {
             throw new BusinessException(ErrorCode.NO_AUTH, "缺少管理员权限");
         }
         boolean result = articleService.removeById(id);
@@ -146,5 +141,21 @@ public class ArticleController {
         Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
         User user = (User) userObj;
         return user != null && user.getRole() == ADMIN_ROLE;
+    }
+
+    /**
+     * 是否登录
+     *
+     * @param request   请求
+     * @return          是否成功
+     */
+    private boolean isLogin(HttpServletRequest request) {
+        // 仅超级管理员可操作
+        Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
+        User currentUser = (User) userObj;
+        if (currentUser == null) {
+            throw new BusinessException(ErrorCode.NOT_LOGIN);
+        }
+        return true;
     }
 }
